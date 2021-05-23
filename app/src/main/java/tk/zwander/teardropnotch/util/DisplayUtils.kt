@@ -21,7 +21,7 @@ val Context.displayCompat: Display
 val Display.realSizeAbsolute: Point
     get() = Point().apply {
         getRealSize(this)
-        if (rotation.run { this != Surface.ROTATION_0 && this != Surface.ROTATION_180 }) {
+        if (isLandscape) {
             val x = this.x
             val y = this.y
 
@@ -29,3 +29,6 @@ val Display.realSizeAbsolute: Point
             this.y = x
         }
     }
+
+val Display.isLandscape: Boolean
+    get() = rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270
