@@ -11,10 +11,12 @@ import android.view.*
 import android.view.accessibility.AccessibilityEvent
 import tk.zwander.teardropnotch.util.PrefManager
 import tk.zwander.teardropnotch.teardrop.TeardropHandler
+import tk.zwander.teardropnotch.util.displayCompat
+import tk.zwander.teardropnotch.util.windowManager
 
 class Accessibility : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
     private val prefs by lazy { PrefManager.getInstance(this) }
-    private val wm by lazy { getSystemService(Context.WINDOW_SERVICE) as WindowManager }
+    private val wm by lazy { windowManager }
     private val iWm by lazy { IWindowManager.Stub.asInterface(ServiceManager.getService(Context.WINDOW_SERVICE)) }
     private val view by lazy { TeardropHandler(this) }
 
@@ -34,7 +36,7 @@ class Accessibility : AccessibilityService(), SharedPreferences.OnSharedPreferen
 
         prefs.prefs.registerOnSharedPreferenceChangeListener(this)
         iWm.watchRotation(rotationListener, Display.DEFAULT_DISPLAY)
-        view.onRotation(wm, wm.defaultDisplay.rotation)
+        view.onRotation(wm, displayCompat.rotation)
         view.onNewCenterRatio(prefs.customCenterRatio)
         updateWindowAddState()
         Log.e("Teardrop", "accessibility started")
@@ -53,10 +55,10 @@ class Accessibility : AccessibilityService(), SharedPreferences.OnSharedPreferen
                 updateWindowAddState()
             }
             PrefManager.KEY_CUSTOM_WIDTH -> {
-                view.onNewDimensions(wm, wm.defaultDisplay.rotation)
+                view.onNewDimensions(wm, displayCompat.rotation)
             }
             PrefManager.KEY_CUSTOM_HEIGHT -> {
-                view.onNewDimensions(wm, wm.defaultDisplay.rotation)
+                view.onNewDimensions(wm, displayCompat.rotation)
             }
             PrefManager.KEY_CUSTOM_CENTER_WIDTH -> {
                 view.onNewCenterRatio(prefs.customCenterRatio)
@@ -66,9 +68,9 @@ class Accessibility : AccessibilityService(), SharedPreferences.OnSharedPreferen
 
     private fun updateWindowAddState(destroying: Boolean = false) {
         if (prefs.isEnabled && !destroying) {
-            view.addWindow(wm, wm.defaultDisplay.rotation)
+            view.addWindow(wm, displayCompat.rotation)
         } else {
-            view.removeWindow(wm, wm.defaultDisplay.rotation)
+            view.removeWindow(wm, displayCompat.rotation)
         }
     }
 }
