@@ -7,8 +7,9 @@ import android.os.Bundle
 import android.view.Surface
 import android.view.WindowManager
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.SwitchPreference
 import tk.zwander.seekbarpreference.SeekBarPreference
+import tk.zwander.teardropnotch.util.PrefManager
+import tk.zwander.teardropnotch.util.statusBarHeight
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

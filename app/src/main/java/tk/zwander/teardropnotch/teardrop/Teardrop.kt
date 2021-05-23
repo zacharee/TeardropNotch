@@ -7,7 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.widget.FrameLayout
-import tk.zwander.teardropnotch.PrefManager
+import tk.zwander.teardropnotch.util.PrefManager
 import tk.zwander.teardropnotch.R
 
 abstract class Teardrop : FrameLayout {

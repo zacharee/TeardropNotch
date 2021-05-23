@@ -1,4 +1,4 @@
-package tk.zwander.teardropnotch
+package tk.zwander.teardropnotch.util
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.ContextWrapper
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import tk.zwander.teardropnotch.util.statusBarHeight
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
     companion object {

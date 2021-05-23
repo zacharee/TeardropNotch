@@ -1,4 +1,4 @@
-package tk.zwander.teardropnotch
+package tk.zwander.teardropnotch.service
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
@@ -9,6 +9,7 @@ import android.os.ServiceManager
 import android.util.Log
 import android.view.*
 import android.view.accessibility.AccessibilityEvent
+import tk.zwander.teardropnotch.util.PrefManager
 import tk.zwander.teardropnotch.teardrop.TeardropHandler
 
 class Accessibility : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {

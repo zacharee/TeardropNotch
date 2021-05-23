@@ -1,4 +1,4 @@
-package tk.zwander.teardropnotch
+package tk.zwander.teardropnotch.util
 
 import android.content.Context
 

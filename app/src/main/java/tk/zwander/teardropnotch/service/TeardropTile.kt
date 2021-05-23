@@ -1,8 +1,9 @@
-package tk.zwander.teardropnotch
+package tk.zwander.teardropnotch.service
 
 import android.content.SharedPreferences
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
+import tk.zwander.teardropnotch.util.PrefManager
 
 class TeardropTile : TileService(), SharedPreferences.OnSharedPreferenceChangeListener {
     private val prefs by lazy { PrefManager.getInstance(this) }
