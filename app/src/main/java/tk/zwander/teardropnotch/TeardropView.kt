@@ -61,24 +61,7 @@ class TeardropView : FrameLayout {
     }
 
     fun onRotation(wm: WindowManager, rotation: Int) {
-        val (rotationDeg, gravity) = when (rotation) {
-            Surface.ROTATION_0 -> 0f to (Gravity.TOP or Gravity.CENTER)
-            Surface.ROTATION_180 -> 180f to (Gravity.BOTTOM or Gravity.CENTER)
-            Surface.ROTATION_90 -> 90f to (Gravity.LEFT or Gravity.CENTER)
-            else -> 270f to (Gravity.RIGHT or Gravity.CENTER)
-        }
 
-        pivotX = params.width / 2f
-        pivotY = params.height / 2f
-        setRotation(rotationDeg)
-
-        val landscape = rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270
-
-        params.width = if (landscape) prefs.customHeight else prefs.customWidth
-        params.height = if (landscape) prefs.customWidth else prefs.customHeight
-        params.gravity = gravity
-
-        updateWindow(wm)
     }
 
     fun addWindow(wm: WindowManager) {

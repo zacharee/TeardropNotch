@@ -5,7 +5,11 @@
       <map>
         <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/drawable/ic_notch.xml" value="0.346875" />
         <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/drawable/ic_notch_center.xml" value="0.346875" />
-        <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/layout/notch.xml" value="0.3307291666666667" />
+        <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/drawable/ic_notch_center_sideways.xml" value="0.346875" />
+        <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/layout/notch.xml" value="0.1" />
+        <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/layout/notch_180.xml" value="0.3307291666666667" />
+        <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/layout/notch_270.xml" value="0.3307291666666667" />
+        <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/layout/notch_90.xml" value="0.3307291666666667" />
         <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/xml/accessibility_service_config.xml" value="0.5541666666666667" />
         <entry key="..\:/StudioProjects/TeardropNotch/app/src/main/res/xml/prefs_main.xml" value="0.3307291666666667" />
       </map>

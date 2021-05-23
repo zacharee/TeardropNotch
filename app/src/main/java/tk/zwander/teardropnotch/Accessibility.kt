@@ -9,12 +9,13 @@ import android.os.ServiceManager
 import android.util.Log
 import android.view.*
 import android.view.accessibility.AccessibilityEvent
+import tk.zwander.teardropnotch.teardrop.TeardropHandler
 
 class Accessibility : AccessibilityService(), SharedPreferences.OnSharedPreferenceChangeListener {
     private val prefs by lazy { PrefManager.getInstance(this) }
     private val wm by lazy { getSystemService(Context.WINDOW_SERVICE) as WindowManager }
     private val iWm by lazy { IWindowManager.Stub.asInterface(ServiceManager.getService(Context.WINDOW_SERVICE)) }
-    private val view by lazy { View.inflate(this, R.layout.notch, null) as TeardropView }
+    private val view by lazy { TeardropHandler(this) }
 
     private val rotationListener = object : IRotationWatcher.Stub() {
         override fun onRotationChanged(rotation: Int) {
@@ -51,10 +52,10 @@ class Accessibility : AccessibilityService(), SharedPreferences.OnSharedPreferen
                 updateWindowAddState()
             }
             PrefManager.KEY_CUSTOM_WIDTH -> {
-                view.onNewDimensions(wm, prefs.customWidth, prefs.customHeight)
+                view.onNewDimensions(wm, wm.defaultDisplay.rotation)
             }
             PrefManager.KEY_CUSTOM_HEIGHT -> {
-                view.onNewDimensions(wm, prefs.customWidth, prefs.customHeight)
+                view.onNewDimensions(wm, wm.defaultDisplay.rotation)
             }
             PrefManager.KEY_CUSTOM_CENTER_WIDTH -> {
                 view.onNewCenterRatio(prefs.customCenterRatio)
@@ -64,9 +65,9 @@ class Accessibility : AccessibilityService(), SharedPreferences.OnSharedPreferen
 
     private fun updateWindowAddState(destroying: Boolean = false) {
         if (prefs.isEnabled && !destroying) {
-            view.addWindow(wm)
+            view.addWindow(wm, wm.defaultDisplay.rotation)
         } else {
-            view.removeWindow(wm)
+            view.removeWindow(wm, wm.defaultDisplay.rotation)
         }
     }
 }

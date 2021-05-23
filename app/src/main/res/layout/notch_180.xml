@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tk.zwander.teardropnotch.teardrop.Teardrop0 xmlns:android="http://schemas.android.com/apk/res/android"
+<tk.zwander.teardropnotch.teardrop.Teardrop180 xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,6 +15,7 @@
             android:src="@drawable/ic_notch_corner"
             android:scaleType="fitXY"
             android:scaleX="-1"
+            android:scaleY="-1"
             />
 
         <ImageView
@@ -23,6 +24,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_notch_center"
             android:scaleType="fitXY"
+            android:scaleY="-1"
             />
 
         <ImageView
@@ -31,8 +33,9 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_notch_corner"
             android:scaleType="fitXY"
+            android:scaleY="-1"
             />
 
     </LinearLayout>
 
-</tk.zwander.teardropnotch.teardrop.Teardrop0>
+</tk.zwander.teardropnotch.teardrop.Teardrop180>
