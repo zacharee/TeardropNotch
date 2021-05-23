@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tk.zwander.teardropnotch.TeardropView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/left_corner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_notch_corner"
+            android:scaleX="-1"
+            />
+
+        <View
+            android:id="@+id/center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_notch_center"
+            />
+
+        <View
+            android:id="@+id/right_corner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_notch_corner"
+            />
+
+    </LinearLayout>
+
+</tk.zwander.teardropnotch.TeardropView>

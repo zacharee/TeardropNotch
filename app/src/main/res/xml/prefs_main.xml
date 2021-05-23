@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreference
+        android:title="@string/enabled"
+        android:key="notch_enabled"
+        />
+
+    <tk.zwander.seekbarpreference.SeekBarPreference
+        android:title="@string/custom_center_width"
+        android:key="notch_custom_center_width"
+        app:scale="0.1"
+        />
+
+    <tk.zwander.seekbarpreference.SeekBarPreference
+        android:title="@string/custom_width"
+        android:key="notch_custom_width"
+        />
+
+    <tk.zwander.seekbarpreference.SeekBarPreference
+        android:title="@string/custom_height"
+        android:key="notch_custom_height"
+        />
+</PreferenceScreen>

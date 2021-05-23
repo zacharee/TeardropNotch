@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Teardrop Notch</string>
+
+    <string name="enabled">Enabled</string>
+    <string name="custom_center_width">Custom Center Width</string>
+    <string name="custom_width">Custom Width</string>
+    <string name="custom_height">Custom Height</string>
+</resources>
