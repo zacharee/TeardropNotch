@@ -5,8 +5,10 @@ import android.view.Surface
 import android.view.View
 import android.view.WindowManager
 import tk.zwander.teardropnotch.R
+import tk.zwander.teardropnotch.util.PrefManager
 
 class TeardropHandler(private val context: Context) {
+    private var prefs = PrefManager.getInstance(context)
     private val teardrops = HashMap<Int, Teardrop>()
 
     init {
@@ -44,9 +46,11 @@ class TeardropHandler(private val context: Context) {
     }
 
     fun addWindow(wm: WindowManager, drop: Teardrop) {
-        try {
-            wm.addView(drop, drop.params)
-        } catch (e: Exception) {}
+        if (prefs.isEnabled) {
+            try {
+                wm.addView(drop, drop.params)
+            } catch (e: Exception) {}
+        }
     }
 
     fun updateWindow(wm: WindowManager, rotation: Int) {
