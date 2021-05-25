@@ -9,12 +9,18 @@ import tk.zwander.teardropnotch.util.displayCompat
 import tk.zwander.teardropnotch.util.realSizeAbsolute
 import tk.zwander.teardropnotch.util.statusBarHeight
 
+/**
+ * The main screen of the app with the options.
+ */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
 
+    /**
+     * The Fragment displaying the options.
+     */
     class MainFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.prefs_main, rootKey)
