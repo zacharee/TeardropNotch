@@ -2,6 +2,7 @@ package tk.zwander.teardropnotch.util
 
 import android.content.Context
 import android.graphics.Point
+import android.hardware.display.DisplayManager
 import android.os.Build
 import android.view.Display
 import android.view.Surface
@@ -14,12 +15,18 @@ val Context.windowManager: WindowManager
     get() = getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
 /**
+ * A convenience method for getting a reference to the DisplayManager.
+ */
+val Context.displayManager: DisplayManager
+    get() = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
+
+/**
  * A convenience method for getting the default display.
  */
 @Suppress("DEPRECATION")
 val Context.displayCompat: Display
     get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        display
+        displayManager.getDisplay(Display.DEFAULT_DISPLAY)
     } else {
         windowManager.defaultDisplay
     }
